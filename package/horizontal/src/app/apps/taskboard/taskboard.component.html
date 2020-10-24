@@ -1,0 +1,68 @@
+<mat-card>
+  <mat-card-content>
+    <div class="taskboard page-height" cdkDropListGroup>
+
+      <div class="taskboard-wrapper">
+        <div class="taskboard-list todos">
+          <div class="taskboard-header text-uppercase" >
+            <strong>Todo</strong>
+          </div>
+          <div class="taskboard-cards" [cdkDropListData]="todos" cdkDropList (cdkDropListDropped)="drop($event)">
+            <div class="taskboard-task" cdkDrag *ngFor="let task of todos" [ngClass]="task.class">
+              <div class="taskboard-task-title">{{task.title}}</div>
+              <span class="task-decription">{{task.description}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="taskboard-wrapper">
+        <div class="taskboard-list inprogress">
+          <div class="taskboard-header text-uppercase" >
+            <strong>Inprogress</strong>
+          </div>
+          <div class="taskboard-cards" [cdkDropListData]="inprogress" cdkDropList (cdkDropListDropped)="drop($event)">
+            <div class="taskboard-task" cdkDrag *ngFor="let task of inprogress" [ngClass]="task.class">
+              <div class="taskboard-task-title">{{task.title}}</div>
+              <span class="task-decription">{{task.description}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="taskboard-wrapper">
+        <div class="taskboard-list onhold">
+          <div class="taskboard-header text-uppercase" >
+            <strong>Onhold</strong>
+          </div>
+          <div class="taskboard-cards" [cdkDropListData]="onhold" cdkDropList (cdkDropListDropped)="drop($event)">
+            <div class="taskboard-task" cdkDrag *ngFor="let task of onhold" [ngClass]="task.class">
+              <div class="taskboard-task-title">{{task.title}}</div>
+              <span class="task-decription">{{task.description}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="taskboard-wrapper">
+        <div class="taskboard-list completed">
+          <div class="taskboard-header text-uppercase" >
+            <strong>Completed</strong>
+          </div>
+          <div class="taskboard-cards" [cdkDropListData]="completed" cdkDropList (cdkDropListDropped)="drop($event)">
+            <div class="taskboard-task" cdkDrag *ngFor="let task of completed" [ngClass]="task.class">
+              <div class="taskboard-task-title">{{task.title}}</div>
+              <span class="task-decription">{{task.description}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+
+
+    </div>
+  </mat-card-content>
+</mat-card>
