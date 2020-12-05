@@ -1,0 +1,32 @@
+{
+  "name": "Deepquant Mobile",
+  "short_name": "DQ Mobile",
+  "theme_color": "#CBD394",
+  "background_color": "#F1F7C6",
+  "icons": [
+    {
+        "src": "/static/gentelella/images/dq64.png",
+        "type": "image/png",
+        "sizes": "64x64"
+      },
+      {
+        "src": "/static/gentelella/images/dq96.png",
+        "type": "image/png",
+        "sizes": "96x96"
+      },
+      {
+        "src": "/static/gentelella/images/dq140.png",
+        "type": "image/png",
+        "sizes": "140x140"
+      },
+      {
+        "src": "/static/gentelella/images/dq180.png",
+        "type": "image/png",
+        "sizes": "180x180"
+      }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

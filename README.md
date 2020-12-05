@@ -1,2 +1,0 @@
-# DQMobile
-Deepquant mobile app
