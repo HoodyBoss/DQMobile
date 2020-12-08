@@ -17,8 +17,6 @@
 
   <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
 
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
-	
 </head>
 <body>
   
@@ -30,7 +28,7 @@
 <h1>Deepquant Mobile</h1>
 
 <div id="firebaseui-auth-container"></div>
-
+<div id="loader">Loading...</div>
 <button id="sign-out" hidden=false>Sign Out</button>
 
 <div id="login-info" hidden=false>
@@ -51,3 +49,9 @@
 
 </body>
 </html>
+
+<!--Vue js-->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script src="{{ url_for('static', filename='firebase_config.js') }}"></script>
+<script src="{{ url_for('static', filename='login.js') }}"></script>
