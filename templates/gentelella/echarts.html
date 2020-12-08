@@ -382,14 +382,27 @@
         </div>
         {% endblock %}
         <!-- page content -->
+      
+        
 
         <!-- footer content -->
         {% block footer %}
-        {{super()}}
+        <footer>
+          <div class="sidebar-footer-override ">
+            <a data-toggle="tooltip" data-placement="top" title="Home" href = "javascript: redirect('index.html')">
+              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Overall" href = "javascript: redirect('echarts.html')">
+              <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
+            </a>
+          </div>
+        </footer>
         {% endblock %}
         <!-- footer content -->
       </div>
     </div>
+
+    
 
     {% block javascript %}
         {{super()}}

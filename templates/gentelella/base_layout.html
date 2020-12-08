@@ -61,12 +61,35 @@
 	  <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection"                      content="telephone=no">
 
+    <style>
+      .sidebar-footer-override {
+        bottom: 0px;
+        left: 0px;
+        clear: both;
+        display: block;
+        padding: 5px 0 0 0px;
+        position: fixed;
+        width: 100%;
+        background: #2A3F54; }
+
+      .sidebar-footer-override a {
+        padding: 5px 0 5px 0;
+        text-align: center;
+        width: 25%;
+        font-size: 17px;
+        display: block;
+        float: left;
+        background: #172D44; }
+
+      .sidebar-footer-override a:hover {
+        background: #425567; }
+    </style>
     
   </head>
 
   <body class="nav-md">
 	<button href="#" id="installButton" hidden>Install!</button>
-    <div class="container body">
+    <div class="container body ">
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
@@ -241,21 +264,31 @@
 
         <!-- page content -->
         {% block content %}{% endblock %}
-        <!-- /page content -->
-
-        <!-- footer content -->
+        
         {% block footer %}
         <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          <div class="sidebar-footer-override ">
+            <a data-toggle="tooltip" data-placement="top" title="Home" href = "javascript: redirect('index.html')">
+              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Overall" href = "javascript: redirect('echarts.html')">
+              <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Account" href = "javascript: redirect('index.html')">
+              <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Logout" href = "javascript: signout()">
+              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
           </div>
-          <div class="clearfix"></div>
         </footer>
         {% endblock %}
         <!-- /footer content -->
       </div>
     </div>
-
+    <!-- /page content --> 
+    <!-- footer content -->
+  
     {% block javascript %}
       <!-- jQuery -->
       <script src="{{ url_for('static', filename='gentelella/vendors/jquery/dist/jquery.min.js') }}"></script>
