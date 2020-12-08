@@ -23,8 +23,7 @@ user_data = None
 def login_required(function_to_protect):
     @wraps(function_to_protect)
     def wrapper(*args, **kwargs):
-        id_token = id_token = request.cookies.get("token")
-        print('call wrapper login id_token >> '+id_token)
+        id_token = request.cookies.get("token")
         if id_token:
             try:
                 # Verify the token against the Firebase Auth API. This example
@@ -34,7 +33,9 @@ def login_required(function_to_protect):
                 # http://flask.pocoo.org/docs/1.0/quickstart/#sessions).
                 claims = google.oauth2.id_token.verify_firebase_token(
                     id_token, firebase_request_adapter)
-                print('call wrapper login require >> '+claims)
+
+                session["user_data"] = claims
+                
                 return function_to_protect(*args, **kwargs)
 
             except ValueError as exc:
@@ -102,12 +103,13 @@ def redirect():
 
     #prepare global var
     #user profile here
+    print('User Session >> '+str(len(session["user_data"])))
     user_data=session["user_data"]
 
     dest_uri = request.args.get('dest_uri')
-    title='Chart JS'
+    title='DQ Mobile'
     return render_template(
-            f'gentelella/{dest_uri}',title='Chart JS', user_data=user_data )
+            f'gentelella/{dest_uri}',title=title , user_data=user_data )
 
 @app.route('/charts')
 @login_required
