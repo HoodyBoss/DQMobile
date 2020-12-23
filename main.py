@@ -59,6 +59,17 @@ def logout():
     session["user_data"] = ""
     return render_template( 'index.html' )
 
+@app.route('/saveprice')
+def saveprice(): 
+    symbol_name = request.args.get('symbol_name')
+    price = request.args.get('price')
+    with open( "D:/Projects/DQMobile/Symbols/{}".format(symbol_name), mode='a', newline='\n', encoding='utf-8') as fh:
+        line = "{symbol_name='"+symbol_name+f"',price_data:{price}"+"}"
+        fh.writelines("%s\n" % line)
+        fh.close()
+
+    return render_template( 'getprice.html', symbol_name=symbol_name, price=price )
+
 @app.route('/login')
 def authen():
     # Verify Firebase auth.
